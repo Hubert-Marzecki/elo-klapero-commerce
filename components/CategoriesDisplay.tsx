@@ -7,8 +7,8 @@ export default function CategoriesDisplay() {
         <StyledContainer>
             <div className="grid-container">
                 <div className="grid__element Big"> <span className="button"><Link href="/ ">INNE</Link></span></div>
-                <div className="grid__element Small1"> <span className="button"><Link href="/ ">BLUZY </Link></span> </div>
-                <div className="grid__element Small2"> <span className="button"><Link href="/ ">KOSZULKI</Link></span> </div>
+                <div className="grid__element Small1"> <span className="button "><Link href="/ ">BLUZY </Link></span> </div>
+                <div className="grid__element Small2"> <span className="button"><Link href="/ "  >KOSZULKI</Link></span> </div>
             </div>
         </StyledContainer>
     )
@@ -27,16 +27,16 @@ const StyledContainer = styled.div`
   .grid__element{
     cursor: pointer;
     position: relative;
-    
     .button{
       position: absolute;
-      color:white;
       font-weight: 600;
       padding: 0.7em 2em;
       right: 10px;
       bottom: 10px;
       background-color: rgba(10,10,10,0.6);
-      
+    }
+    a{
+      color: white !important;
     }
   }
   .Big { grid-area: Big;

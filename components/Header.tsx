@@ -1,68 +1,83 @@
 import styled from "@emotion/styled";
 import logo from '../public/logo.png';
 import Link from 'next/link';
+import {useState} from "react";
 
 export  default  function Header() : JSX.Element{
+
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
     return (
         <StyledHeader>
-                <nav>
-                    <Link href="/" >
-                        <li  className="link">
-                            Sklep
-                        </li>
-                    </Link>
-                    <Link href="/">
-                        <li  className="link">
-                            O nas
-                        </li>
-                    </Link>
-                    <Link href="/">
-                        <li className="link link--logo">
-                            <img src={logo} alt="" />
-                        </li>
-                    </Link>
-                    <Link href="/" >
-                        <li className="link">
-                            Sale
-                        </li>
-                    </Link>
 
-                    <Link href="/" >
-                        <li  className="link">
-                            Kontakt
-                        </li>
-                    </Link>
+            <nav className="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar bg-white shadow">
+                <div className="container d-flex ">
 
+                    <a className="navbar-brand" href="/">
+                        <img src={logo} />
+                        &nbsp;
+                    </a>
 
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                            aria-controls="basicExampleNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                </nav>
+                    <div className={ isOpen ? " navbar-collapse" : " collapse  navbar-collapse"} id="basicExampleNav">
+                        <ul className="navbar-nav ml-auto">
+
+                            <li className="nav-item">
+                                <a href="#!" className="nav-link waves-effect">
+                                    Sklep
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="#!" className="nav-link waves-effect">
+                                    O nas
+                                </a>
+                            </li>
+                            <li className="nav-item text-black">
+                                <a href="#!" className="nav-link waves-effect text-black">
+                                    Kontakt
+                                </a>
+                            </li>
+                            <li className="nav-item ">
+                                <a href="#!" className="nav-link waves-effect text-black">
+                                    ICONS
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
         </StyledHeader>
 
     )
 }
 
 const StyledHeader = styled.header`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-  
-nav{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1em;
-  
-  .link{
-    list-style: none;
-    margin: 2em;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    
-    &--logo{
-      position: relative;
-      margin: 1em 4em 0;
-      
-    }
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  width: 100%;
+  nav{
   }
-}
+  .nav-item{
+    margin: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .nav-link{
+    color: black !important;
+  }
+  
+  img{
+    display: inline-block;
+    width: 200px;
+  }
+ 
+
 `

@@ -13,7 +13,6 @@ export default function JoinUsBanner() {
 }
 
 const StyledBanner = styled.div`
-  margin-top: 10em;
   height: 500px;
   background: url("https://picsum.photos/id/1016/2000/1000");
   background-position: center; /* Center the image */
@@ -27,6 +26,9 @@ const StyledBanner = styled.div`
   .header{
     font-size: 3em;
     color: white;
-    margin-top: -2em;
+    margin-top: -4em;
+    font-weight: 600;
+    max-width: 80%;
+    text-align: center;
   }
 `

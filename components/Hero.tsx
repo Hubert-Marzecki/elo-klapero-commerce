@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
+import {breakpoints} from "../styles/theme";
 
 export default function Hero() {
     return (
         <StyledHero>
             <div className="half__holder">
-            <h1 className="header">
+            <h1 className="page__header">
                 Sklep na chillu
             </h1>
             <p className="caption">
@@ -30,23 +31,28 @@ export default function Hero() {
 }
 
 const StyledHero = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-  font-family: 'Roboto', sans-serif;
   
         max-width: 100vw;
         display: flex;  
         justify-content: center;
         margin: 6em auto;
-  
+        flex-wrap:  wrap;
+
+          @media only screen and (max-width: ${breakpoints.mobile}) {
+            width: 90vw;
+          }
+          
     .half__holder{
       width: 50%;
       display: flex;
       flex-direction: column;
       margin: auto 0em;
-      
-      .header{
-        line-height: 0em;
+      @media only screen and (max-width: ${breakpoints.mobile}) {
+        width: 100%
+      }
+      .page__header{
         font-size: 3em;
+        font-weight: 700;
       }
       .caption{
         margin-right: 5em;
@@ -61,18 +67,22 @@ const StyledHero = styled.div`
   
   .button__holder{
     margin-top: 2em ;
-
+    
+    @media only screen and (max-width: ${breakpoints.mobile}) {
+      margin: 1em 0em;
+    }
     .button{
       text-transform: uppercase;
       font-weight: 800;
       padding: 0.7em 3em;
       margin-right: 1em;
       border: 2px solid #FF6C6C;
-      font-family: 'Roboto', sans-serif;
       background-color: #FF6C6C; ;
       color:white;
       cursor: pointer;
-      
+      @media only screen and (max-width: ${breakpoints.mobile}) {
+        margin: 0.5em 0;
+      }
       &--secondary{
         background-color: white;
         color: #FF6C6C;

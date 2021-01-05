@@ -27,7 +27,9 @@ const StyledContainer = styled.div`
   .grid__element{
     cursor: pointer;
     position: relative;
-    
+    a{
+      color: white !important;
+    }
     .button{
       position: absolute;
       color:white;
