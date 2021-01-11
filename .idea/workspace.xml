@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf5f3c43-35a7-463d-979a-4d826d5e6ffe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Kivi.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/StoreElement.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/about.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/cart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/contact.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/store.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CategoriesDisplay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CategoriesDisplay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CathegoriesDisplayRiverse.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CathegoriesDisplayRiverse.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/JoinUsBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/JoinUsBanner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ProductsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProductsSlider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/SliderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SliderItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
@@ -54,7 +50,9 @@
       <updated>1609757040411</updated>
       <workItem from="1609757053379" duration="366000" />
       <workItem from="1609757491340" duration="12575000" />
-      <workItem from="1609845055085" duration="13219000" />
+      <workItem from="1609845055085" duration="13864000" />
+      <workItem from="1609928190282" duration="10223000" />
+      <workItem from="1610360217028" duration="4813000" />
     </task>
     <servers />
   </component>

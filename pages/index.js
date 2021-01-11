@@ -13,43 +13,15 @@ import Kivi from "../components/Kivi";
 import {useTransition,  animated } from "react-spring";
 import {breakpoints} from "../styles/theme";
 
-export default function Home({info,res})  {
+export default function Home({res})  {
 const [state, setState] = useState(res);
-    console.log(state)
-
-    const ref = useRef([])
-    const [items, set] = useState([])
-    const transitions = useTransition(items, null, {
-        from: { opacity: 0, height: 0, innerHeight: 0, transform: 'perspective(600px) rotateX(0deg)', color: '#8fa5b6' },
-        enter: [
-            { opacity: 1, height: 80, innerHeight: 80 },
-            { transform: 'perspective(600px) rotateX(180deg)', color: '#28d79f' },
-            { transform: 'perspective(600px) rotateX(0deg)' },
-        ],
-        leave: [{ color: '#c23369' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
-        update: { color: '#28b4d7' },
-    })
-
-    const reset = useCallback(() => {
-        ref.current.map(clearTimeout)
-        ref.current = []
-        set([])
-        ref.current.push(setTimeout(() => set(['Apples', 'Oranges', 'Kiwis']), 2000))
-        ref.current.push(setTimeout(() => set(['Apples', 'Kiwis']), 5000))
-        ref.current.push(setTimeout(() => set(['Apples', 'Bananas', 'Kiwis']), 8000))
-    }, [])
-
-    useEffect(() => void reset(), [])
 
 
 
     return (
          <>
              <PageWrapper>
-                 <Header />
-
                  <Kivi url="https://picsum.photos/id/1006/2000/700" />
-
                  <StyledContainer>
                  <Hero />
             <SectionTitle text="COŚ NA NOGI" />
@@ -85,6 +57,7 @@ export const getServerSideProps = async () =>  {
         }
     }
 }
+
 const PageWrapper = styled.div`
     max-width: 100vw;
   overflow-x: hidden;

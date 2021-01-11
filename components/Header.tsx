@@ -9,14 +9,14 @@ export  default  function Header() : JSX.Element{
 
     return (
         <StyledHeader>
-
             <nav className="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar bg-white shadow">
                 <div className="container d-flex ">
-
+                    <Link href="/" >
                     <a className="navbar-brand" href="/">
                         <img src={logo} />
                         &nbsp;
                     </a>
+                    </Link>
 
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -29,19 +29,25 @@ export  default  function Header() : JSX.Element{
                         <ul className="navbar-nav ml-auto">
 
                             <li className="nav-item">
-                                <a href="#!" className="nav-link waves-effect">
+                                <Link href="/store" >
+                                <a href="#" className="nav-link waves-effect">
                                     Sklep
                                 </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#!" className="nav-link waves-effect">
+                                <Link href="/about" >
+                                <a href="#" className="nav-link waves-effect">
                                     O nas
                                 </a>
+                                </Link>
                             </li>
                             <li className="nav-item text-black">
-                                <a href="#!" className="nav-link waves-effect text-black">
+                                <Link href="/contact" >
+                                <a href="#" className="nav-link waves-effect text-black">
                                     Kontakt
                                 </a>
+                                </Link>
                             </li>
                             <li className="nav-item ">
                                 <a href="#!" className="nav-link waves-effect text-black">

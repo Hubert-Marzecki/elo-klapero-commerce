@@ -1,7 +1,18 @@
 import styled from "@emotion/styled";
 import Link from 'next/link';
+import {commerce} from "../lib/commerce";
 
 export  default function SliderItem(props: {item: any}) {
+
+
+    function addToCard(prod_id:string,e) : void {
+        e.preventDefault();
+        commerce.cart.add(prod_id)
+            .then((cart:any) => console.log(cart));
+
+        console.log(commerce.cart)
+    }
+
     return (
         <StyledItem >
             <div className="content__holder">
@@ -10,9 +21,7 @@ export  default function SliderItem(props: {item: any}) {
                 <p className="price">Od {props.item.price.formatted}</p>
             </div>
 
-            <Link href="">
-                <button className="add__to__cart">Do koszyka</button>
-            </Link>
+                <button className="add__to__cart" onClick={(e) => addToCard(props.item.id,e)}>Do koszyka</button>
         </StyledItem>
     )
 }
