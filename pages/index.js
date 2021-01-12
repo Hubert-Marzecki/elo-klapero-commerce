@@ -13,11 +13,12 @@ import Kivi from "../components/Kivi";
 import {useTransition,  animated } from "react-spring";
 import {breakpoints} from "../styles/theme";
 
+import {Context} from  './store'
+
 export default function Home({res})  {
-const [state, setState] = useState(res);
+    const [state, setState] = useState(res);
 
-
-
+    console.log(Context)
     return (
          <>
              <PageWrapper>
