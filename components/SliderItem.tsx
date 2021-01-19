@@ -1,17 +1,16 @@
 import styled from "@emotion/styled";
 import Link from 'next/link';
 import {commerce} from "../lib/commerce";
+import addToCart from '../pages/_app'
+export  default function SliderItem(props: {item: any}) : JSX.Element {
 
-export  default function SliderItem(props: {item: any}) {
 
-
-    function addToCard(prod_id:string,e) : void {
-        e.preventDefault();
-        commerce.cart.add(prod_id)
-            .then((cart:any) => console.log(cart));
-
-        console.log(commerce.cart)
-    }
+    // function addToCard(prod_id:string,e: Event) : void {
+    //     e.preventDefault();
+    //       commerce.cart.add(prod_id)
+    //         .then((cart:any) => console.log(cart));
+    //              console.log(commerce.cart)
+    // }
 
     return (
         <StyledItem >
@@ -21,7 +20,7 @@ export  default function SliderItem(props: {item: any}) {
                 <p className="price">Od {props.item.price.formatted}</p>
             </div>
 
-                <button className="add__to__cart" onClick={(e) => addToCard(props.item.id,e)}>Do koszyka</button>
+                <button className="add__to__cart" onClick={(e) => addToCart(props.item.id)}>Do koszyka</button>
         </StyledItem>
     )
 }

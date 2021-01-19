@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import {commerce} from "../lib/commerce";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useCallback, useContext, useEffect, useRef, useState} from "react";
 import Products from "../components/products/Products";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -10,45 +10,48 @@ import CategoriesDisplayRiverse from "../components/CathegoriesDisplayRiverse";
 import JoinUsBanner from "../components/JoinUsBanner";
 import ProductSlider from "../components/ProductsSlider";
 import Kivi from "../components/Kivi";
-import {useTransition,  animated } from "react-spring";
+import {useTransition, animated} from "react-spring";
 import {breakpoints} from "../styles/theme";
+import Context from './store'
+import {CartContext} from "../components/store";
 
-import {Context} from  './store'
-
-export default function Home({res})  {
+export default function Home({res}) {
     const [state, setState] = useState(res);
+    const dupa = useContext(CartContext)
+    console.log(dupa)
 
-    console.log(Context)
     return (
-         <>
-             <PageWrapper>
-                 <Kivi url="https://picsum.photos/id/1006/2000/700" />
-                 <StyledContainer>
-                 <Hero />
-            <SectionTitle text="COŚ NA NOGI" />
-            <CategoriesDisplay />
-                 <SectionTitle text="COŚ NA CIAŁKO" />
-                 <CategoriesDisplayRiverse />
-                 <JoinUsBanner />
-                 <SectionTitle text="NOWE " />
-                 <ProductSlider items={state.data} />
-             </StyledContainer>
-             </PageWrapper>
-             {/*<div>*/}
-             {/*    {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (*/}
-             {/*        <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>*/}
-             {/*            <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>*/}
-             {/*        </animated.div>*/}
-             {/*    ))}*/}
-             {/*</div>*/}
-         </>
-  )
+        <>
+            <PageWrapper>
+                <Kivi url="https://picsum.photos/id/1006/2000/700"/>
+                <StyledContainer>
+                    <Hero/>
+                    <SectionTitle text="COŚ NA NOGI"/>
+                    <CategoriesDisplay/>
+                    <SectionTitle text="COŚ NA CIAŁKO"/>
+                    <CategoriesDisplayRiverse/>
+                    <JoinUsBanner/>
+                    <SectionTitle text="NOWE "/>
+                    <ProductSlider items={state.data}/>
+                </StyledContainer>
+            </PageWrapper>
+            {/*<div>*/}
+            {/*    {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (*/}
+            {/*        <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>*/}
+            {/*            <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>*/}
+            {/*        </animated.div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
+        </>
+    )
 }
 // TODO - Expreiment https://www.npmjs.com/package/react-scrolling-color-background
 
-export const getServerSideProps = async () =>  {
+export const getServerSideProps = async () => {
     // Fetch data from external API
-    const res =await commerce.products.list().then(res => {return res})
+    const res = await commerce.products.list().then(res => {
+        return res
+    })
     // const data = await res.json();
     // Pass data to the page via props
     return {
@@ -60,7 +63,7 @@ export const getServerSideProps = async () =>  {
 }
 
 const PageWrapper = styled.div`
-    max-width: 100vw;
+  max-width: 100vw;
   overflow-x: hidden;
 `
 const StyledContainer = styled.div`

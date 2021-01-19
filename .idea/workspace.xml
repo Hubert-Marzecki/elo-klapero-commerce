@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf5f3c43-35a7-463d-979a-4d826d5e6ffe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/store.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SliderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SliderItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/StoreElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/StoreElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/store.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\huber\OneDrive\Pulpit\Web\elo-klapero\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -48,6 +54,9 @@
       <workItem from="1609928190282" duration="10223000" />
       <workItem from="1610360217028" duration="5431000" />
       <workItem from="1610453177872" duration="1932000" />
+      <workItem from="1610483718861" duration="1237000" />
+      <workItem from="1610620381963" duration="22000" />
+      <workItem from="1611048289816" duration="10734000" />
     </task>
     <servers />
   </component>

@@ -6,15 +6,15 @@ import {log} from "util";
 import StoreElement from "../components/StoreElement";
 import {breakpoints} from "../styles/theme";
 
-export  default function Store({res}) {
+export default function Store({res}): JSX.Element {
     const [state] = useState(res.data);
     const [selectedCathegory, setSelecetedCathegory] = useState<string>("bluza")
     const [visibleProducts, setVisibleProducts] = useState<Array<any>>(state)
     const [sortDown, setSortDown] = useState<boolean>(true);
 
-    function filterByCategory (e) {
+    function filterByCategory(e) {
         const newSelected = e.target.value;
-        if(newSelected === "Brak filtra") {
+        if (newSelected === "Brak filtra") {
             setSelecetedCathegory("");
             setVisibleProducts(state)
         } else {
@@ -25,18 +25,22 @@ export  default function Store({res}) {
         }
     }
 
-    function sortItems (e) {
+    function sortItems(e) {
         const selectedPrice = e.target.value;
         const copy = [...visibleProducts];
 
         switch (selectedPrice) {
             case "Od najtańszych" :
-                const newVisbleProd = copy.sort((a,b) => {return a.price.raw - b.price.raw})
+                const newVisbleProd = copy.sort((a, b) => {
+                    return a.price.raw - b.price.raw
+                })
                 setVisibleProducts(newVisbleProd)
-            break;
+                break;
 
             case "Od najdroższych" :
-                const newVisibleProd = copy.sort((a,b) => {return b.price.raw - a.price.raw})
+                const newVisibleProd = copy.sort((a, b) => {
+                    return b.price.raw - a.price.raw
+                })
                 setVisibleProducts(newVisibleProd)
                 break;
         }
@@ -47,25 +51,25 @@ export  default function Store({res}) {
             <StyledContainer>
                 <div className={"store__control"}>
 
-                <Form.Control className={"select"} as="select" onClick={(e) => filterByCategory(e)}>
-                    <option>Brak filtra</option>
-                    <option>koszulka</option>
-                    <option>bluza</option>
-                </Form.Control>
+                    <Form.Control className={"select"} as="select" onClick={(e) => filterByCategory(e)}>
+                        <option>Brak filtra</option>
+                        <option>koszulka</option>
+                        <option>bluza</option>
+                    </Form.Control>
 
-                <Form.Control className={"select"} as="select" onClick={(e) => sortItems(e)}>
-                    <option>Od najtańszych</option>
-                    <option>Od najdroższych</option>
-                </Form.Control>
+                    <Form.Control className={"select"} as="select" onClick={(e) => sortItems(e)}>
+                        <option>Od najtańszych</option>
+                        <option>Od najdroższych</option>
+                    </Form.Control>
                 </div>
 
-<div className={"store__container"}>
-            {visibleProducts.map(item => {
-                return (
-                        <StoreElement item={item} key={item.id}/>
-                )
-            })}
-</div>
+                <div className={"store__container"}>
+                    {visibleProducts.map(item => {
+                        return (
+                            <StoreElement item={item} key={item.id}/>
+                        )
+                    })}
+                </div>
             </StyledContainer>
         </>
     )
@@ -75,28 +79,33 @@ const StyledContainer = styled.div`
   margin: 140px auto;
   overflow-x: hidden;
   max-width: 100vw;
-  
+
   @media only screen and (max-width: ${breakpoints.mobile}) {
     width: 100vw;
   }
-  .store__control{
+
+  .store__control {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .store__container{
+
+  .store__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .select{
+
+  .select {
     width: fit-content;
   }
 `
 
-export const getServerSideProps = async () =>  {
+export const getServerSideProps = async () => {
     // Fetch data from external API
-    const res =await commerce.products.list().then((res:any) => {return res})
+    const res = await commerce.products.list().then((res: any) => {
+        return res
+    })
     // const data = await res.json();
     // Pass data to the page via props
     return {

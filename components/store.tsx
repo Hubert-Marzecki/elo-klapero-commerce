@@ -1,15 +1,28 @@
-import React from 'react';
-export const Context = React.createContext();
+import React, {createContext, useEffect, useState} from 'react';
+import {commerce} from "../lib/commerce";
 
-export class Provider extends React.Component {
+export const CartContext = createContext([]);
 
-    state = {
-        name: 'My Name'
-}
-render() {
+export const CartProvider = ({children}) => {
+
+    const [state, setState] = useState([]);
+
+
+    useEffect(() => {
+        getStore()
+    }, [])
+
+    async function getStore() {
+       const res = await commerce.cart.contents();
+       setState(res)
+    }
+    const updateCart =(updates) => {
+        setState(updates)
+    }
+
     return (
-        <Context.Provider value={this.state}>
-            {this.props.children}
-        </Context.Provider>
+        <CartContext.Provider value={{cart: state, updateCart: updateCart  }} >
+            {children}
+        </CartContext.Provider>
     )
-}}
+}

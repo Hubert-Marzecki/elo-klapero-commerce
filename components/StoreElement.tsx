@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {commerce} from "../lib/commerce";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {CartContext} from "./store";
 
 
 
@@ -8,12 +9,11 @@ import {useState} from "react";
 export default function StoreElement(props: {item: any}) {
 
     const [mouseOver, setMouseOver] = useState(false);
-
-    function addToCard(prod_id:string,e) : void {
+    const context = useContext(CartContext);
+    function addToCard(prod_id:string,e:Event) : void {
         e.preventDefault();
         commerce.cart.add(prod_id)
             .then((cart:any) => console.log(cart));
-        console.log(commerce.cart)
     }
 
     return (
