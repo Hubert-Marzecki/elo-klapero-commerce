@@ -1,32 +1,33 @@
 import {commerce} from "../lib/commerce";
 import {useState} from "react";
-import {Dropdown, Form} from "react-bootstrap";
+import { Form} from "react-bootstrap";
 import styled from "@emotion/styled";
-import {log} from "util";
 import StoreElement from "../components/StoreElement";
 import {breakpoints} from "../styles/theme";
 
-export default function Store({res}): JSX.Element {
-    const [state] = useState(res.data);
-    const [selectedCathegory, setSelecetedCathegory] = useState<string>("bluza")
+export default function Store(props: {res:any}): JSX.Element {
+    const [state] = useState(props.res.data);
+    const [setSelecetedCathegory] = useState<any>("bluza")
     const [visibleProducts, setVisibleProducts] = useState<Array<any>>(state)
-    const [sortDown, setSortDown] = useState<boolean>(true);
+    // const [sortDown, setSortDown] = useState<boolean>(true);
 
-    function filterByCategory(e) {
+    function filterByCategory(e:Event) {
+        // @ts-ignore
         const newSelected = e.target.value;
         if (newSelected === "Brak filtra") {
             setSelecetedCathegory("");
             setVisibleProducts(state)
         } else {
-            const filteredItems = state.filter(item => {
+            const filteredItems = state.filter((item:any)=> {
                 return item.categories[0].slug === newSelected
             })
             setVisibleProducts(filteredItems)
         }
     }
 
-    function sortItems(e) {
-        const selectedPrice = e.target.value;
+    function sortItems(e:Event) {
+        // @ts-ignore
+        const selectedPrice : any = e.target.value;
         const copy = [...visibleProducts];
 
         switch (selectedPrice) {
@@ -46,18 +47,20 @@ export default function Store({res}): JSX.Element {
         }
     }
 
+
+
     return (
         <>
             <StyledContainer>
                 <div className={"store__control"}>
-
-                    <Form.Control className={"select"} as="select" onClick={(e) => filterByCategory(e)}>
+                    {/*@ts-ignore*/}
+                    <Form.Control className={"select"} as="select" onClick={(e:Event) => filterByCategory(e)}>
                         <option>Brak filtra</option>
                         <option>koszulka</option>
                         <option>bluza</option>
                     </Form.Control>
-
-                    <Form.Control className={"select"} as="select" onClick={(e) => sortItems(e)}>
+                    {/*@ts-ignore*/}
+                    <Form.Control className={"select"} as="select" onClick={(e:Event) => sortItems(e)}>
                         <option>Od najtańszych</option>
                         <option>Od najdroższych</option>
                     </Form.Control>

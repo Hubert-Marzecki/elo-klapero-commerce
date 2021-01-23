@@ -8,9 +8,7 @@ import {CartContext} from "./store";
 export default function Header(): JSX.Element {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const context = useContext(CartContext);
-    const cartItems = context.cart;
-    console.log(cartItems)
+    const {cart} : any = useContext(CartContext);
 
     return (
         <StyledHeader>
@@ -27,7 +25,7 @@ export default function Header(): JSX.Element {
                         onClick={() => setIsOpen(!isOpen)}
                         className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                         aria-controls="basicExampleNav" aria-expanded="true" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
 
                     <div className={isOpen ? " navbar-collapse" : " collapse  navbar-collapse"} id="basicExampleNav">
@@ -56,7 +54,7 @@ export default function Header(): JSX.Element {
                             </li>
                             <li className="nav-item ">
                                 <a href="#!" className="nav-link waves-effect text-black">
-                                    Items: {cartItems}
+                                    Items: {cart.length}
                                 </a>
                             </li>
                         </ul>

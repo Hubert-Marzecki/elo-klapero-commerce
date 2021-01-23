@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import Link from 'next/link';
-import {commerce} from "../lib/commerce";
-import addToCart from '../pages/_app'
+import {useContext} from "react";
+import {CartContext} from "./store";
+
 export  default function SliderItem(props: {item: any}) : JSX.Element {
 
 
@@ -12,6 +12,9 @@ export  default function SliderItem(props: {item: any}) : JSX.Element {
     //              console.log(commerce.cart)
     // }
 
+    const {updateCart}: any= useContext(CartContext);
+
+
     return (
         <StyledItem >
             <div className="content__holder">
@@ -20,7 +23,7 @@ export  default function SliderItem(props: {item: any}) : JSX.Element {
                 <p className="price">Od {props.item.price.formatted}</p>
             </div>
 
-                <button className="add__to__cart" onClick={(e) => addToCart(props.item.id)}>Do koszyka</button>
+                <button className="add__to__cart" onClick={() => updateCart(props.item.id)}>Do koszyka</button>
         </StyledItem>
     )
 }

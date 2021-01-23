@@ -6,6 +6,9 @@ import {CartProvider} from "../components/store";
 import {useEffect, useState} from "react";
 import getFromUrl from "./client";
 import {commerce} from "../lib/commerce";
+import {useContext} from "react";
+import {CartContext} from "../components/store";
+
 
 function MyApp({Component, pageProps}) {
 
@@ -16,6 +19,9 @@ function MyApp({Component, pageProps}) {
         setCartItems(res)
         console.log(res)
     }
+
+    const context = useContext(CartContext);
+
 
     useEffect(() => {
         getStore()
@@ -30,7 +36,7 @@ function MyApp({Component, pageProps}) {
 
     return (
         <>
-            <CartProvider value={{cartItems: cartItems, updateCart: addToCart }} >
+            <CartProvider  >
                 <Global
                     styles={css`
                       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
